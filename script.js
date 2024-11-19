@@ -1,35 +1,20 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  line-height: 1.6;
-}
+// Check if the current page is "index.html"
+if (window.location.pathname.endsWith('index.html') || window.location.pathname === '/') {
+  const background = document.getElementById('background');
 
-header {
-  background: #333;
-  color: white;
-  padding: 1rem;
-  text-align: center;
-}
+  // Track mouse movements
+  document.addEventListener('mousemove', (event) => {
+    const { clientX, clientY } = event;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
 
-header nav a {
-  color: white;
-  margin: 0 1rem;
-  text-decoration: none;
-}
+    // Map mouse position to colors
+    const hue = (clientX / width) * 360; // Horizontal movement changes hue
+    const lightness = 50 + (clientY / height) * 25; // Vertical movement changes lightness
 
-main {
-  padding: 1rem;
+    // Update background gradient
+    background.style.background = `radial-gradient(circle at ${clientX}px ${clientY}px, 
+      hsl(${hue}, 100%, ${lightness}%) 0%, 
+      rgba(255, 255, 255, 0.1) 80%)`;
+  });
 }
-
-section {
-  margin-bottom: 2rem;
-}
-
-footer {
-  background: #333;
-  color: white;
-  text-align: center;
-  padding: 1rem 0;
-}
-
