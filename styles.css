@@ -1,56 +1,172 @@
-/* Global styles */
+/* Basic reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Root styles */
+:root {
+  --size: 45px;
+  --line-light: rgba(255, 255, 255, 0.15); /* Fallback for color-mix */
+  --line-dark: rgba(0, 0, 0, 0.15); /* Fallback for color-mix */
+  --bg-light: #ffffff;
+  --bg-dark: #121212;
+  --text-light: #000000;
+  --text-dark: #ffffff;
+  --intent: 0; /* Intent for hover effects */
+}
+
+/* Dark theme styles */
+[data-theme="dark"] {
+  background: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+/* Light theme styles */
+[data-theme="light"],
+html {
+  background: var(--bg-light);
+  color: var(--text-light);
+}
+
+/* Body styles */
 body {
-    background-color: #acb09d; /* Soft, warm background */
-    color: #333; /* Dark text for readability */
-    font-family: 'Helvetica Neue', sans-serif; /* Modern, sans-serif font */
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: flex-start; /* Align items to the left */
-    flex-direction: column; /* Stack content vertically */
-    height: auto;
-    text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+  background: var(--bg-light);
+  color: var(--text-light);
+  transition: background 0.3s, color 0.3s; /* Smooth theme switch */
 }
 
-/* Container for content */
-.container {
-    width: 80%; /* Ensures content is well-spaced */
-    max-width: 1000px; /* Keeps content centered */
-    padding: 30px;
-    margin: auto; /* Centers the container */
+/* Radial background grid */
+body::before {
+  --size: 30px;
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: radial-gradient(
+      4px 4px at 50% 50%,
+      var(--line-light),
+      transparent 2px var(--size)
+    )
+    50% 50% / var(--size) var(--size);
+  z-index: -1;
+  pointer-events: none;
 }
 
-/* Header Section - Title of the page */
-.header {
-    text-align: center; /* Center the header text */
-    margin-bottom: 50px; /* Add space below the header */
+/* Text styling */
+p {
+  width: 60ch;
+  max-width: calc(100% - 2rem);
+  line-height: 1.6;
 }
 
-.header h1 {
-    font-size: 2.5rem; /* Clear, large title */
-    color: #fff; /* White text for contrast */
-    font-weight: 500; /* Medium font weight */
+/* Heading */
+h1 {
+  font-size: clamp(3rem, 7vw + 1rem, 5rem);
+  margin-bottom: 1rem;
 }
 
-/* Legal Resources List */
-.resources-list {
-    list-style-type: none; /* Remove bullet points */
-    padding: 0; /* Remove padding around the list */
-    margin: 0; /* Remove margin */
+/* Header */
+header {
+  position: relative;
+  width: 100%;
+  text-align: left;
+  padding: 1rem;
 }
 
-.resource-item {
-    background-color: #fff; /* White background for each resource */
-    padding: 20px;
-    margin-bottom: 20px; /* Space between list items */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow */
-    transition: box-shadow 0.3s ease; /* Smooth hover effect */
+header svg {
+  width: 60px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  fill: currentColor;
+  transform: translate(-25%, -25%) rotate(25deg);
 }
 
-.resource-item:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow on hover */
+/* Button styling */
+button {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--line-light);
+  cursor: pointer;
+  transition: background 0.2s ease;
 }
 
-.resource-item a {
-    color: #acb09d; /* Match
+button svg {
+  width: 50%;
+  height: auto;
+}
+
+button:is(:hover, :focus-visible) {
+  background-color: var(--line-dark);
+}
+
+/* Main content */
+main {
+  width: 600px;
+  max-width: calc(100% - 2rem);
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Accessibility helper */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: none;
+}
+
+/* Links */
+a {
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --line-light: var(--line-dark);
+  }
+  body {
+    background: var(--bg-dark);
+    color: var(--text-dark);
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+}
+
