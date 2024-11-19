@@ -10,20 +10,20 @@ if (currentPath === '/' || currentPath === '/index.html' || currentPath.endsWith
     // For example:
     background.style.backgroundColor = 'lightblue'; // example background change
 
+    // Track mouse movements
+    document.addEventListener('mousemove', (event) => {
+      const { clientX, clientY } = event;
+      const width = window.innerWidth;
+      const height = window.innerHeight;
 
-  // Track mouse movements
-  document.addEventListener('mousemove', (event) => {
-    const { clientX, clientY } = event;
-    const width = window.innerWidth;
-    const height = window.innerHeight;
+      // Map mouse position to colors
+      const hue = (clientX / width) * 360; // Horizontal movement changes hue
+      const lightness = 50 + (clientY / height) * 25; // Vertical movement changes lightness
 
-    // Map mouse position to colors
-    const hue = (clientX / width) * 360; // Horizontal movement changes hue
-    const lightness = 50 + (clientY / height) * 25; // Vertical movement changes lightness
-
-    // Update background gradient
-    background.style.background = `radial-gradient(circle at ${clientX}px ${clientY}px, 
-      hsl(${hue}, 100%, ${lightness}%) 0%, 
-      rgba(255, 255, 255, 0.1) 80%)`;
-  });
+      // Update background gradient
+      background.style.background = `radial-gradient(circle at ${clientX}px ${clientY}px, 
+        hsl(${hue}, 100%, ${lightness}%) 0%, 
+        rgba(255, 255, 255, 0.1) 80%)`;
+    });
+  }
 }
