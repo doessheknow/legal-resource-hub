@@ -7,30 +7,15 @@
 
 /* Root styles */
 :root {
-  --size: 45px;
-  --line-light: rgba(255, 255, 255, 0.15); /* Fallback for color-mix */
-  --line-dark: rgba(0, 0, 0, 0.15); /* Fallback for color-mix */
-  --bg-light: #ffffff;
-  --bg-dark: #121212;
-  --text-light: #000000;
-  --text-dark: #ffffff;
-  --intent: 0; /* Intent for hover effects */
+  --link-color: #555; /* Default link color */
+  --link-hover: #888; /* Hover link color */
+  --bg-home: #f0f8ff; /* Homepage background: light blue */
+  --bg-other: #fffaf0; /* Other pages background: ivory */
+  --text-home: #003366; /* Homepage text: dark blue */
+  --text-other: #8b0000; /* Other pages text: dark red */
 }
 
-/* Dark theme styles */
-[data-theme="dark"] {
-  background: var(--bg-dark);
-  color: var(--text-dark);
-}
-
-/* Light theme styles */
-[data-theme="light"],
-html {
-  background: var(--bg-light);
-  color: var(--text-light);
-}
-
-/* Body styles */
+/* General body styles */
 body {
   display: flex;
   flex-direction: column;
@@ -38,111 +23,42 @@ body {
   justify-content: center;
   min-height: 100vh;
   text-align: center;
-  background: var(--bg-light);
-  color: var(--text-light);
-  transition: background 0.3s, color 0.3s; /* Smooth theme switch */
+  transition: background 0.3s, color 0.3s;
 }
 
-/* Radial background grid */
-body::before {
-  --size: 30px;
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100vw;
-  background: radial-gradient(
-      4px 4px at 50% 50%,
-      var(--line-light),
-      transparent 2px var(--size)
-    )
-    50% 50% / var(--size) var(--size);
-  z-index: -1;
-  pointer-events: none;
+/* Homepage styles */
+body.home {
+  background-color: var(--bg-home);
+  color: var(--text-home);
 }
 
-/* Text styling */
-p {
-  width: 60ch;
-  max-width: calc(100% - 2rem);
-  line-height: 1.6;
+body.home a {
+  color: var(--text-home);
 }
 
-/* Heading */
-h1 {
-  font-size: clamp(3rem, 7vw + 1rem, 5rem);
-  margin-bottom: 1rem;
+body.home a:hover {
+  color: #004488; /* Slightly lighter blue on hover */
 }
 
-/* Header */
-header {
-  position: relative;
-  width: 100%;
-  text-align: left;
-  padding: 1rem;
+/* Other pages styles */
+body.other-page {
+  background-color: var(--bg-other);
+  color: var(--text-other);
 }
 
-header svg {
-  width: 60px;
-  position: absolute;
-  right: 0;
-  top: 0;
-  fill: currentColor;
-  transform: translate(-25%, -25%) rotate(25deg);
+body.other-page a {
+  color: var(--text-other);
 }
 
-/* Button styling */
-button {
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  width: 48px;
-  height: 48px;
-  display: grid;
-  place-items: center;
-  border: none;
-  border-radius: 6px;
-  background-color: var(--line-light);
-  cursor: pointer;
-  transition: background 0.2s ease;
+body.other-page a:hover {
+  color: #a80000; /* Slightly lighter red on hover */
 }
 
-button svg {
-  width: 50%;
-  height: auto;
-}
-
-button:is(:hover, :focus-visible) {
-  background-color: var(--line-dark);
-}
-
-/* Main content */
-main {
-  width: 600px;
-  max-width: calc(100% - 2rem);
-  padding: 2rem;
-  text-align: center;
-}
-
-/* Accessibility helper */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: none;
-}
-
-/* Links */
+/* General link styles */
 a {
-  color: var(--text-light);
   text-decoration: none;
   font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 a:hover {
@@ -150,17 +66,11 @@ a:hover {
 }
 
 /* Responsive adjustments */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --line-light: var(--line-dark);
-  }
-  body {
-    background: var(--bg-dark);
-    color: var(--text-dark);
-  }
-}
-
 @media (max-width: 768px) {
+  body {
+    padding: 1rem;
+  }
+
   h1 {
     font-size: 2rem;
   }
@@ -169,4 +79,3 @@ a:hover {
     font-size: 1rem;
   }
 }
-
