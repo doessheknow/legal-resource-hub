@@ -1,28 +1,176 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Side Quests</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Side Quests</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Resetting margins and paddings */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f8f8f8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      padding: 20px;
+    }
+
+    /* Header styles */
+    header h1 {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    /* Intro Section */
+    .intro h2 {
+      font-size: 1.8rem;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    /* Projects Section */
+    .projects {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 50px;
+    }
+
+    .project-box {
+      background: white;
+      padding: 20px;
+      width: 250px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .project-box h3 {
+      margin-bottom: 15px;
+      font-size: 1.5rem;
+    }
+
+    .project-box p {
+      font-size: 1rem;
+      color: #555;
+    }
+
+    .project-box:hover {
+      transform: translateY(-10px);
+    }
+
+    /* Legal Section Styles (sparkling effect for links) */
+    footer .legal-box {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    footer .legal-box h3 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+
+    footer .legal-box ul {
+      list-style-type: none;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    footer .legal-box li {
+      font-size: 1.2rem;
+    }
+
+    footer .legal-box a {
+      text-decoration: none;
+      color: #007BFF;
+      position: relative;
+      font-weight: bold;
+      font-size: 1.2rem;
+      transition: color 0.3s ease;
+    }
+
+    footer .legal-box a:hover {
+      color: #0056b3;
+    }
+
+    footer .legal-box a::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 3px;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 10%, transparent 10%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      animation: sparkle 1.5s infinite;
+    }
+
+    footer .legal-box a:hover::before {
+      opacity: 1;
+    }
+
+    /* Animation for sparkle effect */
+    @keyframes sparkle {
+      0% {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+      50% {
+        transform: scale(1.1);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+    }
+
+  </style>
 </head>
 <body class="home">
     <div class="container">
+        <!-- Header Section -->
         <header>
             <h1>Welcome to My Side Quests</h1>
         </header>
+
+        <!-- Main Content Section -->
         <main>
+            <!-- Introduction Section -->
             <section class="intro">
-                <h1>Hi, I like working on random projects that pique my interests. I thought I would share them here:</h1>
+                <h2>I like working on random projects, here are a few:</h2>
             </section>
+
+            <!-- Projects Section -->
             <section class="projects">
                 <div class="project-box">
-                    <h2><a href="legal-resources.html">Legal</a></h2> 
-                    <p>This includes tools and resources focusing on legal matters.</p>
+                    <h3><a href="legal-resources.html">Legal</a></h3>
+                    <p>Tools and resources focusing on legal matters</p>
                 </div>
-                <!-- Additional project boxes can go here -->
+                <!-- More project boxes can be added here -->
             </section>
         </main>
+
+        <!-- Footer Section -->
+        
     </div>
 </body>
 </html>
