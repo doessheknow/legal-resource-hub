@@ -1,6 +1,15 @@
-// Check if the current page is "index.html"
-if (window.location.pathname.endsWith('index.html') || window.location.pathname === '/') {
+// Get the current pathname
+const currentPath = window.location.pathname;
+
+// Check if we're on the repository's root (e.g., "/repository-name/" or "/") and the file is "index.html"
+if (currentPath === '/' || currentPath === '/index.html' || currentPath.endsWith('/index.html')) {
+  // Confirm that we are specifically on the root page with "index.html"
   const background = document.getElementById('background');
+  if (background) {
+    // Your logic for modifying the background goes here
+    // For example:
+    background.style.backgroundColor = 'lightblue'; // example background change
+
 
   // Track mouse movements
   document.addEventListener('mousemove', (event) => {
