@@ -6,10 +6,10 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Full viewport height */
-    text-align: center;
+    justify-content: flex-start; /* Align items to the left */
+    flex-direction: column; /* Stack content vertically */
+    height: auto;
+    text-align: left;
 }
 
 /* Container for content */
@@ -17,63 +17,40 @@ body {
     width: 80%; /* Ensures content is well-spaced */
     max-width: 1000px; /* Keeps content centered */
     padding: 30px;
+    margin: auto; /* Centers the container */
 }
 
-/* Intro section with large, bold text */
-.intro h1 {
-    font-size: 3rem; /* Large text size */
+/* Header Section - Title of the page */
+.header {
+    text-align: center; /* Center the header text */
+    margin-bottom: 50px; /* Add space below the header */
+}
+
+.header h1 {
+    font-size: 2.5rem; /* Clear, large title */
     color: #fff; /* White text for contrast */
-    margin-bottom: 40px; /* Space below the intro text */
-    font-weight: 300; /* Light font weight for elegance */
-    line-height: 1.4; /* More space between lines */
+    font-weight: 500; /* Medium font weight */
 }
 
-/* Projects container, arranged vertically */
-.projects {
-    display: flex;
-    flex-direction: column;
-    gap: 30px; /* Adds space between project boxes */
+/* Legal Resources List */
+.resources-list {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove padding around the list */
+    margin: 0; /* Remove margin */
 }
 
-/* Individual project boxes with minimalist design */
-.project-box {
-    background-color: #fff; /* White background for contrast */
-    padding: 30px;
-    border-radius: 8px; /* Slightly rounded corners */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft, elegant shadow */
-    text-align: left;
-    transition: transform 0.3s ease; /* Smooth hover effect */
+.resource-item {
+    background-color: #fff; /* White background for each resource */
+    padding: 20px;
+    margin-bottom: 20px; /* Space between list items */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    transition: box-shadow 0.3s ease; /* Smooth hover effect */
 }
 
-.project-box:hover {
-    transform: translateY(-5px); /* Slightly raise the project box on hover */
+.resource-item:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow on hover */
 }
 
-.project-box h2 {
-    font-size: 2rem; /* Project title size */
-    color: #acb09d; /* Title color matching the background */
-    margin-bottom: 10px;
-    font-weight: 500; /* Medium weight for the title */
-}
-
-.project-box p {
-    font-size: 1.2rem; /* Readable text size */
-    color: #666; /* Muted text color */
-    line-height: 1.5; /* More spacing for readability */
-}
-
-/* Responsive design for smaller screens */
-@media (max-width: 768px) {
-    .intro h1 {
-        font-size: 2rem; /* Smaller intro text on mobile */
-    }
-
-    .project-box {
-        padding: 20px; /* Less padding on mobile */
-    }
-
-    .project-box h2 {
-        font-size: 1.6rem; /* Smaller project title on mobile */
-    }
-}
-
+.resource-item a {
+    color: #acb09d; /* Match
