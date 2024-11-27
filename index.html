@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ECVC</title>
+    <title>My Side Quests</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@400;700&family=Roboto+Condensed:wght@400;700&family=Fira+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         /* Variables */
@@ -15,16 +15,50 @@
             --lightGrey: #d3d3d3;
         }
 
-        /* Mixins */
+        /* Global Reset and Basic Styles */
         * {
+            margin: 0;
+            padding: 0;
             box-sizing: border-box;
         }
 
-        /* Typography */
         html {
             font: 16px 'Open Sans Condensed', 'Roboto Condensed', Verdana, sans-serif;
         }
 
+        /* Layout */
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            color: #333;
+            font-family: 'Open Sans Condensed', 'Roboto Condensed', Verdana, sans-serif;
+            background: var(--ghostWhite);
+        }
+
+        .line {
+            width: 100%;
+            border-top: .25em solid var(--lightBlack);
+        }
+
+        .wrapper {
+            margin: auto;
+            width: 100%;
+            max-width: 1200px; /* Ensure max width for desktop */
+            padding: 0 20px;
+        }
+
+        header,
+        nav,
+        section,
+        footer {
+            width: 100%;
+        }
+
+        /* Typography */
         h1 {
             font-size: 2.25em;
         }
@@ -45,116 +79,37 @@
             font-size: 1.25em;
         }
 
-        /* Layout */
-        html,
-        body {
-            width: 100%;
-            height: 100%;
-        }
-
-        body {
-            color: #333;
-        }
-
-        .line {
-            float: left;
-            width: 100%;
-            border-top: .25em solid var(--lightBlack);
-        }
-
-        .wrapper {
-            margin: auto;
-            width: 60em;
-        }
-
-        header,
-        nav,
-        section,
-        footer {
-            float: left;
-            width: 100%;
-        }
-
-        a {
-            text-decoration: none;
-            transition: color .25s;
-        }
-
-        .button {
-            display: block;
-            padding: .75em 1.25em;
-            font-size: 1em;
-            font-weight: bold;
-            text-transform: uppercase;
-            background: var(--red);
-            color: #fff;
-            border: 0;
-            cursor: pointer;
-        }
-
-        .button:focus,
-        .button:hover {
-            background: #9e0000;
-        }
-
-        .button:active {
-            background: #c10000;
-        }
-
-        .link {
-            font-weight: bold;
-            color: var(--red);
-        }
-
-        .link:focus,
-        .link:hover {
-            color: #9e0000;
-        }
-
-        .link:active {
-            color: lighten(var(--red), 5%);
-        }
-
         /* Navigation */
         nav h1 {
-            float: left;
-            padding: .25em .25em 0 0;
             font-size: 4.5em;
             text-transform: uppercase;
         }
 
         nav h1 a {
             color: var(--red);
+            text-decoration: none;
         }
 
         .nav-ul {
             display: flex;
+            justify-content: space-around;
         }
 
         header li {
-            width: 20%;
-        }
-
-        header li:not(:first-child) {
-            margin-left: 2%;
+            list-style: none;
         }
 
         header .nav-ul a {
-            display: block;
             padding: 1.75em .5em;
             font-size: 1.5em;
             text-align: center;
             text-transform: uppercase;
             color: var(--lightBlack);
+            text-decoration: none;
         }
 
-        header .nav-ul a:focus,
         header .nav-ul a:hover {
             color: var(--red);
-        }
-
-        header .nav-ul a:active {
-            color: lighten(var(--red), 5%);
         }
 
         header li:first-child a {
@@ -168,26 +123,17 @@
 
         /* Sections */
         section {
-            margin: 1em 0;
+            margin: 2em 0;
         }
 
         section h1 {
             text-transform: uppercase;
+            text-align: center;
         }
 
-        hr {
-            border-color: var(--lightGrey);
-            border-style: dashed;
-        }
-
-        .vertical {
-            width: 0;
-            height: 10px;
-        }
-
-        /* Intro */
         .sec-intro {
             position: relative;
+            text-align: center;
         }
 
         .sec-intro img {
@@ -205,10 +151,10 @@
 
         /* Boxes */
         .box {
-            float: left;
-            padding: 1.5em 1em;
-            width: 25%;
-            height: 400px;
+            display: inline-block;
+            padding: 1.5em;
+            width: 24%;
+            margin: 1%;
             border-top: .1em solid var(--lightGrey);
             border-bottom: .1em solid var(--lightGrey);
             border-left: .1em solid var(--lightGrey);
@@ -218,10 +164,6 @@
         .box:hover,
         .box:focus {
             background: #f5f5f5;
-        }
-
-        .box:last-child {
-            border-right: .1em solid var(--lightGrey);
         }
 
         .box h1 {
@@ -234,151 +176,20 @@
             text-align: justify;
         }
 
-        .box .button {
-            margin: 4em auto;
-        }
-
-        /* Events */
-        .sec-events > h1 {
-            margin-top: 1em;
-        }
-
-        .sec-events article {
-            float: left;
-            padding: 0 .25em;
-            width: 25%;
-            text-align: justify;
-        }
-
-        .sec-events article h1,
-        .sec-events article p {
+        .button {
             display: block;
-            margin: .5em 0;
-            padding: .25em 1em;
-            font-size: 110%;
-        }
-
-        .sec-events article a {
-            float: right;
-            padding-right: 1em;
-        }
-
-        .sec-events article h1 {
+            padding: .75em 1.25em;
+            font-size: 1em;
             font-weight: bold;
-            text-align: center;
+            text-transform: uppercase;
+            background: var(--red);
+            color: #fff;
+            border: 0;
+            cursor: pointer;
         }
 
-        /* Projects */
-        .sec-projects {
-            width: 60%;
-        }
-
-        .sec-projects > h1 {
-            margin-top: 1em;
-            text-align: center;
-        }
-
-        .sec-projects article {
-            padding: .5em 0;
-            width: 100%;
-        }
-
-        .sec-projects article h1,
-        .sec-projects article p {
-            font-size: 110%;
-        }
-
-        .sec-projects article h1 {
-            font-weight: bold;
-        }
-
-        .sec-projects article p {
-            margin: .5em .5em .5em 0;
-            text-align: justify;
-        }
-
-        .sec-projects p a {
-            float: right;
-        }
-
-        .sec-projects button {
-            position: relative;
-            left: 80%;
-        }
-
-        /* Standards */
-        .sec-standards {
-            width: 40%;
-        }
-
-        .sec-standards > h1 {
-            margin-top: 1em;
-            text-align: center;
-        }
-
-        .sec-standards article {
-            float: left;
-            padding: .5em 1em;
-            width: 50%;
-            text-align: justify;
-        }
-
-        .sec-standards article:last-child {
-            padding: .5em 0;
-        }
-
-        .sec-standards article h1 {
-            text-align: center;
-        }
-
-        /* Partners */
-        .sec-partners h1 {
-            margin-top: 1em;
-        }
-
-        .sec-partners .row {
-            float: left;
-            margin: 2em 0;
-            width: 100%;
-        }
-
-        .logo-container {
-            float: left;
-            width: 16%;
-            width: 100px;
-        }
-
-        .logo-container:not(:first-child) {
-            margin-left: 7.5%;
-        }
-
-        .logo-container:first-child {
-            margin-top: .2em;
-        }
-
-        .logo-container:nth-of-type(2) img {
-            margin-top: 1.2em;
-        }
-
-        .logo-container:nth-of-type(3) img {
-            margin-top: 1.8em;
-        }
-
-        .logo-container:nth-of-type(4) img {
-            margin-top: 2.35em;
-        }
-
-        .logo-container:nth-of-type(5) img {
-            margin-top: .35em;
-        }
-
-        .logo-container:last-of-type img {
-            margin-top: .65em;
-        }
-
-        .sec-partners img {
-            float: left;
-            width: 100%;
+        .button:hover {
+            background: #9e0000;
         }
 
         /* Footer */
@@ -394,21 +205,13 @@
             margin-bottom: 1em;
         }
 
-        footer li:not(:first-child) {
-            margin-left: .75em;
-        }
-
-        footer li:first-child a {
-            color: var(--lightBlack);
-        }
-
         footer a {
             font-size: 1.25em;
             font-weight: bold;
             color: var(--darkGrey);
+            text-decoration: none;
         }
 
-        footer a:focus,
         footer a:hover {
             color: var(--lightBlack);
         }
@@ -416,10 +219,54 @@
         .copy {
             font-size: .85em;
         }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            header .nav-ul {
+                flex-direction: column;
+            }
+
+            .box {
+                width: 48%;
+                margin: 1%;
+            }
+
+            .sec-projects,
+            .sec-standards {
+                width: 100%;
+            }
+
+            footer {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .sec-intro h1 {
+                font-size: 1.5em;
+            }
+
+            .box {
+                width: 100%;
+                margin-bottom: 2em;
+            }
+
+            .nav-ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            footer .nav-ul {
+                flex-direction: column;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Main content -->
     <header>
         <nav>
             <h1><a href="#">My Website</a></h1>
@@ -434,7 +281,7 @@
 
     <section class="sec-intro">
         <img src="image.jpg" alt="Intro image">
-        <h1>Welcome to my ECVC Paralegal Research Repository</h1>
+        <h1>Welcome to My Side Quests</h1>
     </section>
 
     <section class="sec-projects">
