@@ -1,136 +1,96 @@
-/* Typography */
-html {
-  font: 16px 'Open Sans Condensed', 'Roboto Condensed', Verdana, sans-serif;
-}
-h1 {
-  font-size: 2.25em;
-}
-h2 {
-  font-size: 2em;
-}
-h3 {
-  font-size: 1.75em;
-}
-h4 {
-  font-size: 1.5em;
-}
-p {
-  font-size: 1.25em;
-}
+/* General Styles */
 
-/* Layout */
-html,
-body {
-  width: 100%;
-  height: 100%;
-}
-body {
-  color: #333;
-}
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-}
-.line {
-  float: left;
-  width: 100%;
-  border-top: .25em solid #333; /* Replaced $lightBlack */
-}
+/* Base styles for all screen sizes (default, desktop or larger screens) */
+
+/* Layout: Use Flexbox for a responsive, fluid layout */
 .wrapper {
   margin: auto;
-  width: 60em; /* 960px */
-  /* min-height: 100%; */
-}
-header,
-nav,
-section,
-footer {
-  float: left;
-  width: 100%;
-}
-a {
-  text-decoration: none;
-  transition: color .25s;
-}
-.button {
-  display: block;
-  padding: .75em 1.25em;
-  font-size: 1em;
-  font-weight: bold;
-  text-transform: uppercase;
-  background: #ad0000; /* Replaced $red */
-  color: #fff;
-  border: 0;
-  cursor: pointer;
-}
-.button:hover,
-.button:focus {
-  background: #9c0000; /* Darkened $red by 7% */
-}
-.button:active {
-  background: #c10000;
-}
-.link {
-  font-weight: bold;
-  color: #ad0000; /* Replaced $red */
-}
-.link:hover,
-.link:focus {
-  color: #930000; /* Darkened $red by 10% */
-}
-.link:active {
-  color: #c00000; /* Lightened $red by 5% */
+  width: 60em; /* 960px on large screens */
 }
 
-/* Navigation */
-nav h1 {
-  float: left;
-  padding: .25em .25em 0 0;
-  font-size: 4.5em;
-  text-transform: uppercase;
+.header, .nav-ul {
+  display: flex; /* Ensures elements are aligned horizontally */
+  justify-content: space-between;
 }
-nav h1 a {
-  color: #ad0000; /* Replaced $red */
-}
-.nav-ul {
-  display: flex;
-}
+
+/* Navigation styles */
 header li {
   width: 20%;
 }
-header li:not(:first-child) {
-  margin-left: 2%;
-}
+
 header .nav-ul a {
-  display: block;
-  padding: 1.75em .5em;
   font-size: 1.5em;
-  text-align: center;
-  text-transform: uppercase;
-  color: #333; /* Replaced $lightBlack */
-}
-header .nav-ul a:hover,
-header .nav-ul a:focus {
-  color: #ad0000; /* Replaced $red */
-}
-header .nav-ul a:active {
-  color: #c00000; /* Lightened $red by 5% */
-}
-header li:first-child a {
-  background: #ad0000; /* Replaced $red */
-  color: #fff;
-}
-header li:first-child a:hover {
-  color: #fff;
+  padding: 1em;
 }
 
-/* Sections */
-section {
-  margin: 1em 0;
+/* Media Queries for Mobile */
+@media only screen and (max-width: 768px) { /* Tablets and smaller screens */
+  .wrapper {
+    width: 100%; /* Full width on smaller screens */
+    padding: 0 1em; /* Some padding for mobile devices */
+  }
+
+  header li {
+    width: 100%; /* Stack list items vertically on mobile */
+    text-align: center;
+  }
+
+  header .nav-ul {
+    flex-direction: column; /* Stack navigation links vertically */
+  }
+
+  .button {
+    font-size: 1em; /* Larger buttons on mobile */
+    padding: 1em 2em;
+  }
+
+  .box {
+    width: 100%; /* Full width for boxes on small screens */
+    margin-bottom: 1em; /* Space between boxes */
+  }
+
+  .sec-intro h1 {
+    font-size: 1.5em; /* Adjust title size */
+    padding: .5em; /* Adjust padding for better readability */
+  }
+
+  .sec-events article {
+    width: 100%; /* Stack events vertically */
+    padding: 1em 0;
+  }
+
+  footer {
+    padding: 1em 0;
+  }
 }
-section h1 {
-  text-transform: uppercase;
+
+@media only screen and (max-width: 480px) { /* Small screens, like smartphones in portrait mode */
+  header li {
+    width: 100%; /* Full width for header items */
+  }
+
+  header .nav-ul a {
+    padding: 1em 0;
+    font-size: 1.2em; /* Adjust font size for better readability */
+  }
+
+  .sec-projects article,
+  .sec-standards article {
+    width: 100%; /* Stack articles vertically on mobile */
+    padding: .5em 0;
+  }
+
+  .logo-container {
+    width: 30%; /* Smaller logo container width for mobile */
+    margin: 0 5%; /* Space between logos */
+  }
+
+  .box {
+    width: 100%; /* Full width boxes */
+    margin-bottom: 1em;
+  }
+
+  .copy {
+    font-size: .75em; /* Smaller footer text */
+  }
 }
-hr {
-  border-color: #d3d3d3; /* Replaced
