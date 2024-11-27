@@ -54,6 +54,7 @@
             background: linear-gradient(135deg, #ff7f82, #ffa260);
             padding: 20px;
             width: 250px;
+            min-height: 300px; /* Minimum height for uniform box size */
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             text-align: center;
@@ -61,12 +62,16 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between; /* Evenly space out content */
+            flex: 0 0 auto; /* Prevent the box from growing or shrinking */
         }
 
-        .project-box:hover {
-            transform: translateY(-10px);
-            background: linear-gradient(135deg, #8fc866, #e4cb58);
+        .project-box h3 {
+            margin-bottom: 10px;
+        }
+
+        .project-box p {
+            flex-grow: 1; /* Allow text to take up remaining space */
         }
 
         .project-box a {
@@ -113,36 +118,34 @@
         <main>
             <!-- Introduction -->
             <section class="intro">
-                <h2>This repository covers resources and procedural guides related to the Emerging Companies and Venture Cpital:</h2>
+                <h2>This repository covers resources and procedural guides related to Emerging Companies and Venture Capital:</h2>
             </section>
 
             <!-- Projects Section -->
             <section class="projects">
                 <div class="project-box">
                     <h3><a href="Delaware-Corporate-Law.html">Delaware Corporate Law</a></h3>
-                    <p>Delaware Corporate Law</p>
+                    <p>Overview of Delaware Corporate Law and its application in emerging companies.</p>
                 </div>
 
                 <div class="project-box">
                     <h3><a href="Venture-Capital-Financing.html">Venture Capital Financing</a></h3>
-                    <p>Venture Capital Financing</p>
+                    <p>Learn about how venture capital financing works and the role of paralegals.</p>
                 </div>
 
-            <section class="projects">
                 <div class="project-box">
                     <h3><a href="Equity-Incentive-Plans.html">Equity Incentive Plans</a></h3>
-                    <p>Equity Incentive Plans</p>
+                    <p>Insights on equity incentive plans in startup and venture-backed companies.</p>
                 </div>
 
-            <section class="projects">
                 <div class="project-box">
                     <h3><a href="Securities-Compliance.html">Securities Compliance</a></h3>
-                    <p>Securities Compliance</p>
+                    <p>Explore securities regulations, including compliance with federal and state laws.</p>
                 </div>
-            <section class="projects">
+
                 <div class="project-box">
                     <h3><a href="Due-diligence.html">Due Diligence</a></h3>
-                    <p>Due Diligence</p>
+                    <p>Understand the due diligence process and the paralegal's role in M&A transactions.</p>
                 </div>
             </section>
         </main>
