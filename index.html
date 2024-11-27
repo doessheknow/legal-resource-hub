@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ECVC Paralegal Research Repository</title>
+    <title>My Side Quests</title>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -54,7 +54,6 @@
             background: linear-gradient(135deg, #ff7f82, #ffa260);
             padding: 20px;
             width: 250px;
-            min-height: 300px; /* Minimum height for uniform box size */
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             text-align: center;
@@ -62,16 +61,12 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: space-between; /* Evenly space out content */
-            flex: 0 0 auto; /* Prevent the box from growing or shrinking */
+            justify-content: center;
         }
 
-        .project-box h3 {
-            margin-bottom: 10px;
-        }
-
-        .project-box p {
-            flex-grow: 1; /* Allow text to take up remaining space */
+        .project-box:hover {
+            transform: translateY(-10px);
+            background: linear-gradient(135deg, #8fc866, #e4cb58);
         }
 
         .project-box a {
