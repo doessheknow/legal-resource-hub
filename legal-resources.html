@@ -4,131 +4,166 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ECVC Paralegal Research Repository</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Ensure styles.css is accessible -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Fira Sans', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .tab-button {
+            background-color: #ff7f82;
+            border: 1px solid #ff7f82;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .tab-button:hover {
+            background-color: #ffa260;
+        }
+
+        .tab-button.active {
+            background-color: #8fc866;
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .intro h2 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            .tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .tab-button {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
 </head>
-<body class="other-page">
-    <header>
-        <h1>Welcome to My ECVC Paralegal Research Repository</h1>
-        <p>This repository is a collection of research, tools, and resources I have compiled in preparation for a role as an ECVC Paralegal. It covers key topics relevant to the emerging companies and venture capital space, including Delaware corporate law, venture capital financing, due diligence, securities compliance, equity incentive plan administration, and paralegal tools commonly used in this practice.</p>
-    </header>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>Welcome to My ECVC Paralegal Research Repository</h1>
+        </header>
 
-    <main>
-        <section>
-            <h2>Research & Resources</h2>
-            <ul>
-                <li>
-                    <strong>Corporate Law & Governance</strong>: Overview of Delaware corporate law and best practices for managing corporate governance, including formation and qualification documents for Delaware corporations, and sample board resolutions and stockholder actions.
-                </li>
-                <li>
-                    <strong>Due Diligence & Transaction Management</strong>: A comprehensive checklist and guidelines for performing due diligence in venture capital and M&A transactions, including essential documents and best practices for managing data rooms and transaction workflows.
-                </li>
-                <li>
-                    <strong>Securities Compliance & Blue Sky Research</strong>: An introduction to Blue Sky laws and the paralegal’s role in securities compliance during venture capital financing, along with a guide to Blue Sky filings and state-level securities compliance.
-                </li>
-                <li>
-                    <strong>Equity Incentive Plans</strong>: Insights into equity plan administration, tracking stock options, and ensuring compliance with federal securities laws. Includes sample documents and checklists for managing stock options and equity awards.
-                </li>
-                <li>
-                    <strong>Tools & Technologies for Paralegals</strong>: Resources on essential software and tools for ECVC paralegals, such as <a href="https://www.carta.com" target="_blank">Carta</a> for equity plan administration, <a href="https://docs.google.com" target="_blank">Google Docs</a> and <a href="https://www.box.com" target="_blank">Box</a> for collaboration, and <a href="https://www.docusign.com" target="_blank">DocuSign</a> for electronic document execution.
-                </li>
-            </ul>
+        <!-- Introduction -->
+        <section class="intro">
+            <h2>This repository covers topics related to the Emerging Companies and Venture Capital space.</h2>
         </section>
 
-        <section>
-            <h2>Tools and Resources Showcase</h2>
-            <ul>
-                <li>
-                    <strong>Document Automation Tools</strong>: Tools to streamline the creation and management of legal documents, including resources for automating contract generation and document templates for corporate formations.
-                </li>
-                <li>
-                    <strong>Legal Research Databases</strong>: Access to platforms like <a href="https://www.lexisnexis.com" target="_blank">LexisNexis</a> and <a href="https://legal.thomsonreuters.com/en/westlaw" target="_blank">Westlaw</a> for comprehensive legal research on corporate law, securities, and IP matters.
-                </li>
-                <li>
-                    <strong>Collaboration Tools</strong>: Tools like <a href="https://docs.google.com" target="_blank">Google Docs</a> and <a href="https://www.docusign.com" target="_blank">DocuSign</a> for efficient document management and collaboration within legal teams, particularly useful for due diligence, M&A transactions, and compliance filings.
-                </li>
-            </ul>
-        </section>
+        <!-- Tabs Navigation -->
+        <div class="tabs">
+            <button class="tab-button active" onclick="showTab('delaware')">Delaware Corporate Law</button>
+            <button class="tab-button" onclick="showTab('financing')">Venture Capital Financing</button>
+            <button class="tab-button" onclick="showTab('equity')">Equity Incentive Plans</button>
+            <button class="tab-button" onclick="showTab('securities')">Securities Compliance</button>
+            <button class="tab-button" onclick="showTab('due-diligence')">Due Diligence</button>
+        </div>
 
-        <section>
-            <h2>Tabs to Key Sections</h2>
-            <ul>
-                <li><a href="#delaware-corporate-law">Delaware Corporate Law</a></li>
-                <li><a href="#venture-capital-financing">Venture Capital Financing Essentials</a></li>
-                <li><a href="#equity-incentive-plan">Equity Incentive Plan Administration</a></li>
-                <li><a href="#securities-compliance">Securities Compliance for Emerging Companies</a></li>
-                <li><a href="#due-diligence">Due Diligence in Mergers and Acquisitions</a></li>
-                <li><a href="#capitalization-tables">Capitalization Tables & Platforms</a></li>
-                <li><a href="#venture-capital-closings">Preparing for Venture Capital Closings</a></li>
-                <li><a href="#emerging-trends">Emerging Trends in Startup Law</a></li>
-                <li><a href="#blue-sky-compliance">Blue Sky Compliance</a></li>
-                <li><a href="#corporate-record-maintenance">Best Practices in Corporate Record Maintenance</a></li>
-            </ul>
-        </section>
-
-        <section id="delaware-corporate-law">
+        <!-- Tab Content Sections -->
+        <div id="delaware" class="tab-content active">
             <h3>Delaware Corporate Law</h3>
-            <p>Overview of Delaware corporate law, including formation and qualification documents for Delaware corporations, governance best practices, and sample board resolutions and stockholder actions.</p>
-        </section>
+            <p>Overview of Delaware corporate law and best practices for managing corporate governance, including formation and qualification documents for Delaware corporations.</p>
+        </div>
 
-        <section id="venture-capital-financing">
-            <h3>Venture Capital Financing Essentials</h3>
-            <p>Key documents and procedures involved in venture capital financing, including term sheets, preferred stock agreements, and investment rounds.</p>
-        </section>
+        <div id="financing" class="tab-content">
+            <h3>Venture Capital Financing</h3>
+            <p>A comprehensive guide to venture capital financing, including term sheets, investment rounds, and legal considerations in startup funding.</p>
+        </div>
 
-        <section id="equity-incentive-plan">
-            <h3>Equity Incentive Plan Administration</h3>
-            <p>Guidance on managing stock options, stockholder equity, and ensuring compliance with federal securities laws in venture-backed companies.</p>
-        </section>
+        <div id="equity" class="tab-content">
+            <h3>Equity Incentive Plans</h3>
+            <p>Insights into equity plan administration, tracking stock options, and ensuring compliance with federal securities laws.</p>
+        </div>
 
-        <section id="securities-compliance">
-            <h3>Securities Compliance for Emerging Companies</h3>
-            <p>Detailed exploration of Blue Sky laws, state and federal securities compliance during venture capital transactions, and filing requirements for stockholder and securities registrations.</p>
-        </section>
+        <div id="securities" class="tab-content">
+            <h3>Securities Compliance</h3>
+            <p>Introduction to securities compliance, Blue Sky laws, and the paralegal’s role in securities filings during venture capital financing.</p>
+        </div>
 
-        <section id="due-diligence">
-            <h3>Due Diligence in Mergers and Acquisitions</h3>
-            <p>Comprehensive checklist and guidelines for performing due diligence in M&A, including document reviews, financial analysis, and contract management.</p>
-        </section>
+        <div id="due-diligence" class="tab-content">
+            <h3>Due Diligence in M&A</h3>
+            <p>Guidelines for performing due diligence in venture capital and M&A transactions, including essential documents and best practices for managing data rooms.</p>
+        </div>
+    </div>
 
-        <section id="capitalization-tables">
-            <h3>Capitalization Tables & Platforms</h3>
-            <p>Understanding and managing capitalization tables using platforms like Carta, ensuring proper tracking of equity stakes and compliance with financing rounds.</p>
-        </section>
+    <script>
+        // Function to switch tabs
+        function showTab(tabId) {
+            // Hide all tabs content
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
 
-        <section id="venture-capital-closings">
-            <h3>Preparing for Venture Capital Closings</h3>
-            <p>Best practices and essential steps for preparing for venture capital deal closings, including closing checklists, document management, and final agreement reviews.</p>
-        </section>
+            // Remove active class from all tab buttons
+            const tabButtons = document.querySelectorAll('.tab-button');
+            tabButtons.forEach(button => button.classList.remove('active'));
 
-        <section id="emerging-trends">
-            <h3>Emerging Trends in Startup Law</h3>
-            <p>Overview of the latest trends in startup law, including emerging financing structures, IP protections, and compliance challenges for modern startups.</p>
-        </section>
-
-        <section id="blue-sky-compliance">
-            <h3>Blue Sky Compliance</h3>
-            <p>Understanding the role of Blue Sky laws in venture financing and the paralegal’s role in managing state-level securities filings for emerging companies.</p>
-        </section>
-
-        <section id="corporate-record-maintenance">
-            <h3>Best Practices in Corporate Record Maintenance</h3>
-            <p>Essential practices for maintaining corporate records, including stockholder lists, meeting minutes, and compliance with Delaware corporate law requirements.</p>
-        </section>
-
-        <section>
-            <h2>Disclaimer</h2>
-            <p>
-                <strong>
-                    The tools and resources provided on this page are for informational purposes only and are not intended to constitute legal advice. By using these resources, you acknowledge that you should consult a licensed attorney for legal guidance. This site does not engage in the practice of law and does not form an attorney-client relationship.
-                </strong>
-            </p>
-        </section>
-    </main>
-
-    <footer>
-        <p>
-            <a href="index.html">Back to Home</a> | <a href="contact.html">Contact</a>
-        </p>
-    </footer>
+            // Show the selected tab and set the button to active
+            document.getElementById(tabId).classList.add('active');
+            const activeButton = document.querySelector(`button[onclick="showTab('${tabId}')"]`);
+            activeButton.classList.add('active');
+        }
+    </script>
 </body>
 </html>
