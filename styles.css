@@ -1,7 +1,12 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevent scrolling */
+}
+
 body {
-  position: relative;
-    overflow: hidden;
-    background: #C6FFDD;
+    position: relative;
     background: linear-gradient(200deg, #bf93c2, #FBD786, #C6FFDD);
     height: 100vh;
 }
